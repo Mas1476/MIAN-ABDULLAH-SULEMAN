@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abdullah | MARVEL#1476</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: #0f0;
+      overflow-x: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      padding: 40px 20px;
+      max-width: 700px;
+      margin: auto;
+      color: #0f0;
+    }
+
+    h1, h2 {
+      color: #0f0;
+    }
+
+    .card {
+      background-color: rgba(0, 255, 0, 0.05);
+      border: 1px solid #0f0;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    a {
+      color: #0f0;
+      text-decoration: underline;
+    }
+
+    button {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 2;
+      background: black;
+      color: #0f0;
+      border: 1px solid #0f0;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #0f0;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="starfield"></canvas>
+
+<div class="container">
+  <h1>Abdullah</h1>
+  <p><strong>Location:</strong> Pakistan</p>
+
+  <div class="card">
+    <h2>About Me</h2>
+    <p>I’m a student completing my matric. I’m passionate about cybersecurity, ethical hacking (using Termux), and creating content on YouTube.</p>
+  </div>
+
+  <div class="card">
+    <h2>YouTube Channel</h2>
+    <p><strong>Name:</strong> MARVEL#1476</p>
+    <p><a href="https://youtube.com/@marvel1476">Visit My Channel</a></p>
+  </div>
+
+  <div class="card">
+    <h2>Learning & Skills</h2>
+    <ul>
+      <li>Cybersecurity & Ethical Hacking</li>
+      <li>Using Termux Legally</li>
+      <li>PowerShell Basics</li>
+      <li>Web Development (via GitHub Pages)</li>
+      <li>Trading (beginner)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Social Media</h2>
+    <p><strong>Instagram:</strong> <a href="https://instagram.com/mas17264">@mas17264</a></p>
+  </div>
+
+  <div class="card">
+    <h2>My Friends</h2>
+    <ul>
+      <li>Ahmed Mubarak</li>
+      <li>Zaid Gill</li>
+      <li>Haider Abbas</li>
+      <li>Qasim Farooq</li>
+      <li>Mubeen Ashraf</li>
+      <li>Abdullah Majid</li>
+      <li>Daniels</li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>Made by Abdullah © 2025</p>
+  </footer>
+</div>
+
+<audio id="bgSound" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="document.getElementById('bgSound').play()">🎵 Play Music</button>
+
+<script>
+  const canvas = document.getElementById('starfield');
+  const ctx = canvas.getContext('2d');
+
+  let stars = [];
+
+  function initStars() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    stars = [];
+    for (let i = 0; i < 200; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.5,
+        speed: Math.random() * 0.5 + 0.2
+      });
+    }
+  }
+
+  function animateStars() {
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#0f0';
+    for (let star of stars) {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+      ctx.fill();
+      star.y += star.speed;
+      if (star.y > canvas.height) {
+        star.y = 0;
+        star.x = Math.random() * canvas.width;
+      }
+    }
+    requestAnimationFrame(animateStars);
+  }
+
+  window.addEventListener('resize', initStars);
+  initStars();
+  animateStars();
+</script>
+
+</body>
+</html>
