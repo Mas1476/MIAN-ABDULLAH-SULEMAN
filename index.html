@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Abdullah | MARVEL#1476</title>
+  <title>Abdullah Suleman | MARVEL#1476</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
       background-color: black;
       color: #0f0;
@@ -17,12 +17,15 @@
       position: fixed;
       top: 0;
       left: 0;
+      width: 100vw;
+      height: 100vh;
       z-index: 0;
+      pointer-events: none;
     }
 
     .container {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       padding: 40px 20px;
       max-width: 700px;
       margin: auto;
@@ -50,7 +53,7 @@
       position: fixed;
       top: 15px;
       right: 15px;
-      z-index: 2;
+      z-index: 3;
       background: black;
       color: #0f0;
       border: 1px solid #0f0;
@@ -69,11 +72,20 @@
 </head>
 <body>
 
-<canvas id="starfield"></canvas>
+<!-- Starfield -->
+<canvas id="starCanvas"></canvas>
+<!-- Binary Rain -->
+<canvas id="binaryCanvas"></canvas>
+
+<!-- Music -->
+<audio id="bgSound" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+<button onclick="document.getElementById('bgSound').play()">🎵 Play Music</button>
 
 <div class="container">
   <h1>Abdullah Suleman</h1>
-  <p><strong>Location:</strong> Pakistan,Punjab,Pasrur.</p>
+  <p><strong>Location:</strong> Pakistan</p>
 
   <div class="card">
     <h2>About Me</h2>
@@ -110,35 +122,30 @@
       <li>Qasim Farooq</li>
       <li>Mubeen Arshad</li>
       <li>Abdullah Majid</li>
-      <li>Daniel</li>
+      <li>Danial</li>
     </ul>
   </div>
 
   <footer>
-    <p>Made by Abdullah © 2025</p>
+    <p>Made by Abdullah Suleman © 2025</p>
   </footer>
 </div>
 
-<audio id="bgSound" loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
-
-<button onclick="document.getElementById('bgSound').play()">🎵 Play Music</button>
-
+<!-- Scripts -->
 <script>
-  const canvas = document.getElementById('starfield');
-  const ctx = canvas.getContext('2d');
-
+  // Starfield
+  const starCanvas = document.getElementById("starCanvas");
+  const starCtx = starCanvas.getContext("2d");
   let stars = [];
 
   function initStars() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    starCanvas.width = window.innerWidth;
+    starCanvas.height = window.innerHeight;
     stars = [];
     for (let i = 0; i < 200; i++) {
       stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
+        x: Math.random() * starCanvas.width,
+        y: Math.random() * starCanvas.height,
         radius: Math.random() * 1.5,
         speed: Math.random() * 0.5 + 0.2
       });
@@ -146,25 +153,63 @@
   }
 
   function animateStars() {
-    ctx.fillStyle = 'black';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = '#0f0';
+    starCtx.fillStyle = "black";
+    starCtx.fillRect(0, 0, starCanvas.width, starCanvas.height);
+    starCtx.fillStyle = "#0f0";
     for (let star of stars) {
-      ctx.beginPath();
-      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-      ctx.fill();
+      starCtx.beginPath();
+      starCtx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+      starCtx.fill();
       star.y += star.speed;
-      if (star.y > canvas.height) {
+      if (star.y > starCanvas.height) {
         star.y = 0;
-        star.x = Math.random() * canvas.width;
+        star.x = Math.random() * starCanvas.width;
       }
     }
     requestAnimationFrame(animateStars);
   }
 
-  window.addEventListener('resize', initStars);
+  // Binary Rain
+  const binaryCanvas = document.getElementById("binaryCanvas");
+  const binaryCtx = binaryCanvas.getContext("2d");
+
+  let fontSize = 16;
+  let columns;
+  let drops;
+
+  function initBinary() {
+    binaryCanvas.width = window.innerWidth;
+    binaryCanvas.height = window.innerHeight;
+    columns = Math.floor(binaryCanvas.width / fontSize);
+    drops = Array(columns).fill(1);
+  }
+
+  function drawBinary() {
+    binaryCtx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    binaryCtx.fillRect(0, 0, binaryCanvas.width, binaryCanvas.height);
+    binaryCtx.fillStyle = "#0f0";
+    binaryCtx.font = fontSize + "px monospace";
+
+    drops.forEach((y, i) => {
+      const text = "01"[Math.floor(Math.random() * 2)];
+      binaryCtx.fillText(text, i * fontSize, y * fontSize);
+      if (y * fontSize > binaryCanvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    });
+  }
+
+  window.addEventListener("resize", () => {
+    initStars();
+    initBinary();
+  });
+
   initStars();
   animateStars();
+
+  initBinary();
+  setInterval(drawBinary, 33);
 </script>
 
 </body>
