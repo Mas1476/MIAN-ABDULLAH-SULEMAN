@@ -68,6 +68,18 @@
       font-size: 0.9em;
       color: #0f0;
     }
+
+    /* POPUP ANIMATIONS */
+    @keyframes popupFade {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+
+    @keyframes glowText {
+      0% { text-shadow: 0 0 5px #0f0; }
+      50% { text-shadow: 0 0 20px #00ff00; }
+      100% { text-shadow: 0 0 5px #0f0; }
+    }
   </style>
 </head>
 <body>
@@ -85,11 +97,14 @@
 
 <div class="container">
   <h1>Abdullah Suleman</h1>
-  <p><strong>Location:</strong> Pakistan,Punjab,Pasrur</p>
+  <p><strong>Location:</strong> Pakistan, Punjab, Pasrur</p>
 
   <div class="card">
     <h2>About Me</h2>
-    <p>I’m a student of 1st year at Superior College Pasrur. I’m passionate about cybersecurity, ethical hacking (using Termux), and creating content on YouTube.</p>
+    <p>
+      I’m a student of 1st year at ALLIANCE INSTITUTE OF MEDICAL SCIENCES & INFORMATION TECHNOLOGY. 
+      I’m passionate about cybersecurity, ethical hacking (using Termux), and creating content on YouTube.
+    </p>
   </div>
 
   <div class="card">
@@ -123,6 +138,50 @@
   <footer>
     <p>Made by Abdullah Suleman © 2025</p>
   </footer>
+</div>
+
+<!-- 🔥 POPUP (ERROX WhatsApp Channel) -->
+<div id="popup" style="
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: black;
+  border: 2px solid #0f0;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 9999;
+  width: 320px;
+  text-align: center;
+  display: none;
+  color: #0f0;
+  box-shadow: 0 0 25px #0f0;
+  animation: popupFade 0.8s ease-out;
+">
+  <h2 style="margin-bottom: 10px; font-size: 22px; animation: glowText 1.5s infinite;">
+    ⚠ ERROX CHANNEL
+  </h2>
+
+  <p style="margin-bottom: 10px;">
+    Join my WhatsApp Channel for hacker updates!
+  </p>
+
+  <a href="https://whatsapp.com/channel/0029Vb5eufGInlqIVg1R3U0Z" 
+     target="_blank"
+     style="color:#0f0; text-decoration: underline; font-size: 18px;">
+     👉 Join Now
+  </a>
+
+  <br><br>
+
+  <button onclick="closePopup()" style="
+    background:black;
+    border:1px solid #0f0;
+    padding:8px 15px;
+    color:#0f0;
+    cursor:pointer;
+    border-radius:5px;
+    box-shadow: 0 0 10px #0f0;
+  ">Close</button>
 </div>
 
 <!-- Scripts -->
@@ -194,18 +253,29 @@
     });
   }
 
+  // SHOW POPUP AFTER LOAD
+  window.onload = function() {
+    initStars();
+    animateStars();
+
+    initBinary();
+    setInterval(drawBinary, 33);
+
+    // Delay popup
+    setTimeout(() => {
+      document.getElementById("popup").style.display = "block";
+    }, 1500);
+  };
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+
   window.addEventListener("resize", () => {
     initStars();
     initBinary();
   });
-
-  initStars();
-  animateStars();
-
-  initBinary();
-  setInterval(drawBinary, 33);
 </script>
 
-  
 </body>
 </html>
