@@ -1,281 +1,153 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Abdullah Suleman | LY BEAST</title>
+  <title>Abdullah Suleman | Digital Portfolio</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: Arial, sans-serif;
       background-color: black;
-      color: #0f0;
+      color: #00ff99;
       overflow-x: hidden;
-    }
+    }canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
 
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-    }
+.container {
+  position: relative;
+  z-index: 2;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: auto;
+}
 
-    .container {
-      position: relative;
-      z-index: 2;
-      padding: 40px 20px;
-      max-width: 700px;
-      margin: auto;
-      color: #0f0;
-    }
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #00ff99;
+}
 
-    h1, h2 {
-      color: #0f0;
-    }
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #00ff99;
+}
 
-    .card {
-      background-color: rgba(0, 255, 0, 0.05);
-      border: 1px solid #0f0;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
+p, li {
+  line-height: 1.6;
+  font-size: 1rem;
+}
 
-    a {
-      color: #0f0;
-      text-decoration: underline;
-    }
+.card {
+  background-color: rgba(0, 255, 153, 0.05);
+  border: 1px solid rgba(0,255,153,0.4);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
 
-    button {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      z-index: 3;
-      background: black;
-      color: #0f0;
-      border: 1px solid #0f0;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+a {
+  color: #00ff99;
+  text-decoration: underline;
+}
 
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.9em;
-      color: #0f0;
-    }
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.85em;
+  opacity: 0.7;
+}
 
-    /* POPUP ANIMATIONS */
-    @keyframes popupFade {
-      from { opacity: 0; transform: translate(-50%, -60%); }
-      to { opacity: 1; transform: translate(-50%, -50%); }
-    }
+.tag {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px solid #00ff99;
+  border-radius: 20px;
+  margin: 5px 5px 0 0;
+  font-size: 0.85rem;
+}
 
-    @keyframes glowText {
-      0% { text-shadow: 0 0 5px #0f0; }
-      50% { text-shadow: 0 0 20px #00ff00; }
-      100% { text-shadow: 0 0 5px #0f0; }
-    }
   </style>
 </head>
-<body>
-
-<!-- Starfield -->
-<canvas id="starCanvas"></canvas>
-<!-- Binary Rain -->
-<canvas id="binaryCanvas"></canvas>
-
-<!-- Music -->
-<audio id="bgSound" loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
-<button onclick="document.getElementById('bgSound').play()">🎵 Play Music</button>
+<body><canvas id="starCanvas"></canvas>
 
 <div class="container">
   <h1>Abdullah Suleman</h1>
-  <p><strong>Location:</strong> Pakistan, Punjab, Pasrur</p>
-
-  <div class="card">
+  <p>Student • Cybersecurity Learner • Digital Creator</p>
+  <p><strong>Location:</strong> Punjab, Pakistan</p>  <div class="card">
     <h2>About Me</h2>
     <p>
-      I’m a student of 1st year at ALLIANCE INSTITUTE OF MEDICAL SCIENCES & INFORMATION TECHNOLOGY. 
-      I’m passionate about cybersecurity, ethical hacking (using Termux), and creating content on YouTube.
+      I am a first-year IT student at <strong>Alliance Institute of Medical Sciences & Information Technology</strong>.
+      I am learning cybersecurity, ethical hacking (legally), and modern web technologies.
+      This website represents my learning journey and personal projects.
     </p>
-  </div>
-
-  <div class="card">
-    <h2>YouTube Channel</h2>
-    <p><strong>Name:</strong> LY BEAST</p>
-    <p><a href="https://www.youtube.com/@lybeast_edits">Visit My Channel</a></p>
-  </div>
-
-  <div class="card">
-    <h2>Learning & Skills</h2>
-    <ul>
-      <li>Cybersecurity & Ethical Hacking</li>
-      <li>Using Termux Legally</li>
-      <li>Web Development (via GitHub Pages)</li>
-      <li>Trading (beginner)</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>Social Media</h2>
-    <p><strong>Instagram:</strong> <a href="https://instagram.com/mas17264">@mas17264</a></p>
-  </div>
-
-  <div class="card">
-    <h2>My Friends</h2>
-    <ul>
-      <p>*ALONE HACKER*</p>
-    </ul>
-  </div>
-
-  <footer>
-    <p>Made by Abdullah Suleman © 2025</p>
+  </div>  <div class="card">
+    <h2>What I’m Learning</h2>
+    <div class="tag">Cybersecurity Basics</div>
+    <div class="tag">Ethical Hacking</div>
+    <div class="tag">Termux</div>
+    <div class="tag">HTML / CSS / JS</div>
+    <div class="tag">GitHub Pages</div>
+  </div>  <div class="card">
+    <h2>Creative Work</h2>
+    <p>
+      I run a YouTube channel where I upload music edits and creative content as part of my growth journey.
+    </p>
+    <p>
+      <a href="https://www.youtube.com/@lybeast_edits" target="_blank">Visit YouTube Channel →</a>
+    </p>
+  </div>  <div class="card">
+    <h2>Connect</h2>
+    <p><strong>Instagram:</strong> <a href="https://instagram.com/mas17264" target="_blank">@mas17264</a></p>
+    <p><strong>WhatsApp Channel:</strong> <a href="https://whatsapp.com/channel/0029Vb5eufGInlqIVg1R3U0Z" target="_blank">Join Updates</a></p>
+  </div>  <footer>
+    <p>© 2025 Abdullah Suleman • Learning in Progress</p>
   </footer>
-</div>
-
-<!-- 🔥 POPUP (ERROX WhatsApp Channel) -->
-<div id="popup" style="
-  position: fixed;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  background: black;
-  border: 2px solid #0f0;
-  padding: 20px;
-  border-radius: 10px;
-  z-index: 9999;
-  width: 320px;
-  text-align: center;
-  display: none;
-  color: #0f0;
-  box-shadow: 0 0 25px #0f0;
-  animation: popupFade 0.8s ease-out;
-">
-  <h2 style="margin-bottom: 10px; font-size: 22px; animation: glowText 1.5s infinite;">
-    ⚠ ERROX CHANNEL
-  </h2>
-
-  <p style="margin-bottom: 10px;">
-    Join my WhatsApp Channel for hacker updates!
-  </p>
-
-  <a href="https://whatsapp.com/channel/0029Vb5eufGInlqIVg1R3U0Z" 
-     target="_blank"
-     style="color:#0f0; text-decoration: underline; font-size: 18px;">
-     👉 Join Now
-  </a>
-
-  <br><br>
-
-  <button onclick="closePopup()" style="
-    background:black;
-    border:1px solid #0f0;
-    padding:8px 15px;
-    color:#0f0;
-    cursor:pointer;
-    border-radius:5px;
-    box-shadow: 0 0 10px #0f0;
-  ">Close</button>
-</div>
-
-<!-- Scripts -->
-<script>
-  // Starfield
-  const starCanvas = document.getElementById("starCanvas");
-  const starCtx = starCanvas.getContext("2d");
+</div><script>
+  const canvas = document.getElementById("starCanvas");
+  const ctx = canvas.getContext("2d");
   let stars = [];
 
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
   function initStars() {
-    starCanvas.width = window.innerWidth;
-    starCanvas.height = window.innerHeight;
-    stars = [];
-    for (let i = 0; i < 200; i++) {
-      stars.push({
-        x: Math.random() * starCanvas.width,
-        y: Math.random() * starCanvas.height,
-        radius: Math.random() * 1.5,
-        speed: Math.random() * 0.5 + 0.2
-      });
-    }
+    resize();
+    stars = Array.from({ length: 180 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.5,
+      s: Math.random() * 0.6 + 0.2
+    }));
   }
 
-  function animateStars() {
-    starCtx.fillStyle = "black";
-    starCtx.fillRect(0, 0, starCanvas.width, starCanvas.height);
-    starCtx.fillStyle = "#0f0";
-    for (let star of stars) {
-      starCtx.beginPath();
-      starCtx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-      starCtx.fill();
-      star.y += star.speed;
-      if (star.y > starCanvas.height) {
+  function animate() {
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#00ff99";
+    stars.forEach(star => {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+      ctx.fill();
+      star.y += star.s;
+      if (star.y > canvas.height) {
         star.y = 0;
-        star.x = Math.random() * starCanvas.width;
+        star.x = Math.random() * canvas.width;
       }
-    }
-    requestAnimationFrame(animateStars);
-  }
-
-  // Binary Rain
-  const binaryCanvas = document.getElementById("binaryCanvas");
-  const binaryCtx = binaryCanvas.getContext("2d");
-
-  let fontSize = 16;
-  let columns;
-  let drops;
-
-  function initBinary() {
-    binaryCanvas.width = window.innerWidth;
-    binaryCanvas.height = window.innerHeight;
-    columns = Math.floor(binaryCanvas.width / fontSize);
-    drops = Array(columns).fill(1);
-  }
-
-  function drawBinary() {
-    binaryCtx.fillStyle = "rgba(0, 0, 0, 0.05)";
-    binaryCtx.fillRect(0, 0, binaryCanvas.width, binaryCanvas.height);
-    binaryCtx.fillStyle = "#0f0";
-    binaryCtx.font = fontSize + "px monospace";
-
-    drops.forEach((y, i) => {
-      const text = "01"[Math.floor(Math.random() * 2)];
-      binaryCtx.fillText(text, i * fontSize, y * fontSize);
-      if (y * fontSize > binaryCanvas.height && Math.random() > 0.975) {
-        drops[i] = 0;
-      }
-      drops[i]++;
     });
+    requestAnimationFrame(animate);
   }
 
-  // SHOW POPUP AFTER LOAD
-  window.onload = function() {
-    initStars();
-    animateStars();
-
-    initBinary();
-    setInterval(drawBinary, 33);
-
-    // Delay popup
-    setTimeout(() => {
-      document.getElementById("popup").style.display = "block";
-    }, 1500);
-  };
-
-  function closePopup() {
-    document.getElementById("popup").style.display = "none";
-  }
-
-  window.addEventListener("resize", () => {
-    initStars();
-    initBinary();
-  });
-</script>
-
-</body>
+  window.addEventListener("resize", initStars);
+  initStars();
+  animate();
+</script></body>
 </html>
