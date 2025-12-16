@@ -15,9 +15,11 @@
   inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0;
   pointer-events: none;
 }
+
+#starCanvas { z-index: 0; }
+#binaryCanvas { z-index: 1; }
 
 .container {
   position: relative;
@@ -27,22 +29,9 @@
   margin: auto;
 }
 
-h1 {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-  color: #00ff99;
-}
-
-h2 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  color: #00ff99;
-}
-
-p, li {
-  line-height: 1.6;
-  font-size: 1rem;
-}
+h1 { font-size: 2.2rem; margin-bottom: 10px; }
+h2 { font-size: 1.4rem; margin-bottom: 10px; }
+p, li { line-height: 1.6; }
 
 .card {
   background-color: rgba(0, 255, 153, 0.05);
@@ -52,10 +41,7 @@ p, li {
   margin-bottom: 20px;
 }
 
-a {
-  color: #00ff99;
-  text-decoration: underline;
-}
+a { color: #00ff99; }
 
 footer {
   text-align: center;
@@ -73,11 +59,27 @@ footer {
   font-size: 0.85rem;
 }
 
+.music-btn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 3;
+  background: black;
+  border: 1px solid #00ff99;
+  color: #00ff99;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
   </style>
 </head>
-<body><canvas id="starCanvas"></canvas>
+<body><canvas id="starCanvas"></canvas> <canvas id="binaryCanvas"></canvas>
 
-<div class="container">
+<audio id="bgSound" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" onclick="document.getElementById('bgSound').play()">▶ Play Sound</button><div class="container">
   <h1>Abdullah Suleman</h1>
   <p>Student • Cybersecurity Learner • Digital Creator</p>
   <p><strong>Location:</strong> Punjab, Pakistan</p>  <div class="card">
@@ -85,69 +87,97 @@ footer {
     <p>
       I am a first-year IT student at <strong>Alliance Institute of Medical Sciences & Information Technology</strong>.
       I am learning cybersecurity, ethical hacking (legally), and modern web technologies.
-      This website represents my learning journey and personal projects.
+      This website represents my learning journey.
     </p>
   </div>  <div class="card">
     <h2>What I’m Learning</h2>
-    <div class="tag">Cybersecurity Basics</div>
+    <div class="tag">Cybersecurity</div>
     <div class="tag">Ethical Hacking</div>
     <div class="tag">Termux</div>
     <div class="tag">HTML / CSS / JS</div>
-    <div class="tag">GitHub Pages</div>
   </div>  <div class="card">
     <h2>Creative Work</h2>
-    <p>
-      I run a YouTube channel where I upload music edits and creative content as part of my growth journey.
-    </p>
-    <p>
-      <a href="https://www.youtube.com/@lybeast_edits" target="_blank">Visit YouTube Channel →</a>
-    </p>
+    <p><a href="https://www.youtube.com/@lybeast_edits" target="_blank">Visit YouTube Channel →</a></p>
   </div>  <div class="card">
     <h2>Connect</h2>
-    <p><strong>Instagram:</strong> <a href="https://instagram.com/mas17264" target="_blank">@mas17264</a></p>
-    <p><strong>WhatsApp Channel:</strong> <a href="https://whatsapp.com/channel/0029Vb5eufGInlqIVg1R3U0Z" target="_blank">Join Updates</a></p>
+    <p>Instagram: <a href="https://instagram.com/mas17264" target="_blank">@mas17264</a></p>
+    <p>WhatsApp: <a href="https://whatsapp.com/channel/0029Vb5eufGInlqIVg1R3U0Z" target="_blank">Join Channel</a></p>
   </div>  <footer>
-    <p>© 2025 Abdullah Suleman • Learning in Progress</p>
+    © 2025 Abdullah Suleman • Learning in Progress
   </footer>
 </div><script>
-  const canvas = document.getElementById("starCanvas");
-  const ctx = canvas.getContext("2d");
-  let stars = [];
+// STARFIELD
+const starCanvas = document.getElementById('starCanvas');
+const sctx = starCanvas.getContext('2d');
+let stars = [];
 
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
+function resizeAll() {
+  starCanvas.width = binaryCanvas.width = window.innerWidth;
+  starCanvas.height = binaryCanvas.height = window.innerHeight;
+}
 
-  function initStars() {
-    resize();
-    stars = Array.from({ length: 180 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 1.5,
-      s: Math.random() * 0.6 + 0.2
-    }));
-  }
+function initStars() {
+  resizeAll();
+  stars = Array.from({ length: 180 }, () => ({
+    x: Math.random() * starCanvas.width,
+    y: Math.random() * starCanvas.height,
+    r: Math.random() * 1.5,
+    s: Math.random() * 0.6 + 0.2
+  }));
+}
 
-  function animate() {
-    ctx.fillStyle = "black";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#00ff99";
-    stars.forEach(star => {
-      ctx.beginPath();
-      ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-      ctx.fill();
-      star.y += star.s;
-      if (star.y > canvas.height) {
-        star.y = 0;
-        star.x = Math.random() * canvas.width;
-      }
-    });
-    requestAnimationFrame(animate);
-  }
+function animateStars() {
+  sctx.fillStyle = 'black';
+  sctx.fillRect(0, 0, starCanvas.width, starCanvas.height);
+  sctx.fillStyle = '#00ff99';
+  stars.forEach(star => {
+    sctx.beginPath();
+    sctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+    sctx.fill();
+    star.y += star.s;
+    if (star.y > starCanvas.height) {
+      star.y = 0;
+      star.x = Math.random() * starCanvas.width;
+    }
+  });
+  requestAnimationFrame(animateStars);
+}
 
-  window.addEventListener("resize", initStars);
+// BINARY RAIN
+const binaryCanvas = document.getElementById('binaryCanvas');
+const bctx = binaryCanvas.getContext('2d');
+const fontSize = 16;
+let columns, drops;
+
+function initBinary() {
+  columns = Math.floor(binaryCanvas.width / fontSize);
+  drops = Array(columns).fill(1);
+}
+
+function drawBinary() {
+  bctx.fillStyle = 'rgba(0,0,0,0.05)';
+  bctx.fillRect(0, 0, binaryCanvas.width, binaryCanvas.height);
+  bctx.fillStyle = '#00ff99';
+  bctx.font = fontSize + 'px monospace';
+
+  drops.forEach((y, i) => {
+    const text = Math.random() > 0.5 ? '0' : '1';
+    bctx.fillText(text, i * fontSize, y * fontSize);
+    if (y * fontSize > binaryCanvas.height && Math.random() > 0.975) drops[i] = 0;
+    drops[i]++;
+  });
+}
+
+window.onload = () => {
   initStars();
-  animate();
+  initBinary();
+  animateStars();
+  setInterval(drawBinary, 33);
+};
+
+window.addEventListener('resize', () => {
+  initStars();
+  initBinary();
+});
 </script></body>
 </html>
