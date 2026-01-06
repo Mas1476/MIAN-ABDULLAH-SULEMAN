@@ -1,189 +1,195 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Abdullah Suleman | Digital Portfolio</title>
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       font-family: Arial, sans-serif;
       background-color: black;
       color: #00ff99;
       overflow-x: hidden;
       min-height: 100vh;
-    }canvas {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-}
+    }
 
-#starCanvas { z-index: 0; }
-#binaryCanvas { z-index: 1; }
+    canvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+    }
 
-.container {
-  position: relative;
-  z-index: 2;
-  padding: 40px 20px;
-  max-width: 800px;
-  margin: auto;
-}
+    #starCanvas { z-index: 0; }
+    #binaryCanvas { z-index: 1; }
 
-h1 { font-size: 2.2rem; margin-bottom: 10px; }
-h2 { font-size: 1.4rem; margin-bottom: 10px; }
-p, li { line-height: 1.6; }
+    .container {
+      position: relative;
+      z-index: 2;
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
 
-.card {
-  background-color: rgba(0, 255, 153, 0.05);
-  border: 1px solid rgba(0,255,153,0.4);
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 20px;
-}
+    h1 { font-size: 2.2rem; margin-bottom: 10px; }
+    h2 { font-size: 1.4rem; margin-bottom: 10px; }
+    p, li { line-height: 1.6; }
 
-a { color: #00ff99; }
+    .card {
+      background-color: rgba(0, 255, 153, 0.05);
+      border: 1px solid rgba(0,255,153,0.4);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
 
-footer {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 0.85em;
-  opacity: 0.7;
-}
+    a { color: #00ff99; }
 
-.tag {
-  display: inline-block;
-  padding: 6px 12px;
-  border: 1px solid #00ff99;
-  border-radius: 20px;
-  margin: 5px 5px 0 0;
-  font-size: 0.85rem;
-}
+    .tag {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px solid #00ff99;
+      border-radius: 20px;
+      margin: 5px 5px 0 0;
+      font-size: 0.85rem;
+    }
 
-.music-btn {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 3;
-  background: black;
-  border: 1px solid #00ff99;
-  color: #00ff99;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 6px;
-}
+    .music-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 3;
+      background: black;
+      border: 1px solid #00ff99;
+      color: #00ff99;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
 
+    footer {
+      margin-top: 40px;
+      padding: 20px 10px;
+      border-top: 1px solid rgba(0,255,153,0.3);
+      text-align: center;
+      font-size: 0.85em;
+      opacity: 0.8;
+    }
   </style>
 </head>
-<body><canvas id="starCanvas"></canvas> <canvas id="binaryCanvas"></canvas>
+
+<body>
+
+<canvas id="starCanvas"></canvas>
+<canvas id="binaryCanvas"></canvas>
 
 <audio id="bgSound" loop>
   <source src="lil-nas-x-industry-baby-lyrics-ft-jack-harlow-128-ytshorts.savetube.me.mp3" type="audio/mpeg">
 </audio>
-<button class="music-btn" onclick="document.getElementById('bgSound').play()">▶ Play Sound</button><div class="container">
+
+<button class="music-btn" onclick="document.getElementById('bgSound').play()">▶ Play Sound</button>
+
+<div class="container">
+
   <h1>Abdullah Suleman</h1>
   <p>Student • Cybersecurity Learner • Digital Creator</p>
-  <p><strong>Location:</strong> Punjab, Pakistan</p>  <div class="card">
+  <p><strong>Location:</strong> Punjab, Pakistan</p>
+
+  <div class="card">
     <h2>About Me</h2>
     <p>
-      My name is <strong>Abdullah Suleman</strong>. I am a first-year IT student at 
-      <strong>Alliance Institute of Medical Sciences & Information Technology</strong>, Punjab, Pakistan.
-      I have a strong interest in technology, especially in how systems work behind the scenes.
+      My name is <strong>Abdullah Suleman</strong>. I am a first-year IT student at
+      <strong>Alliance Institute of Medical Sciences & Information Technology</strong>.
     </p>
     <p>
-      I am currently focusing on <strong>cybersecurity fundamentals</strong>, learning how networks,
-      operating systems, and basic security concepts work. I practice ethically and legally,
-      mainly using tools inside <strong>Termux</strong> for educational purposes.
+      I focus on understanding how systems work behind the scenes, especially in
+      cybersecurity, networking, and operating systems.
     </p>
     <p>
-      This website is not a showcase of perfection — it is a <strong>record of my growth</strong>.
-      Every section here represents what I am learning step by step. Over time, this portfolio
-      will evolve as my skills improve and my projects become more advanced.
+      This portfolio documents my learning journey — clean, honest, and evolving
+      with real skills over time.
     </p>
-  </div>  <div class="card">
+  </div>
+
+  <div class="card">
     <h2>What I’m Learning</h2>
     <p>
-      I am building my foundation by learning the core concepts first. Instead of rushing,
-      I believe in understanding how things work deeply and correctly.
+      Building a strong foundation by learning core concepts deeply rather than
+      rushing into advanced tools.
     </p>
+
     <div class="tag">Cybersecurity Basics</div>
     <div class="tag">Ethical Hacking (Legal)</div>
     <div class="tag">Networking Fundamentals</div>
     <div class="tag">Linux & Termux</div>
     <div class="tag">HTML / CSS / JavaScript</div>
-    <p style="margin-top:10px;">
-      In the future, I plan to move towards advanced security topics, real-world projects,
-      and responsible research.
-    </p>
   </div>
-    <div class="tag">Ethical Hacking</div>
-    <div class="tag">Termux</div>
-    <div class="tag">HTML / CSS / JS</div>
-  </div>  <div class="card">
+
+  <!-- 🔥 PRO SECTION (SPACE FIXED HERE) -->
+  <div class="card">
+    <h2>Focus Areas</h2>
+    <p>
+      Currently concentrating on a limited set of technologies to develop
+      long-term, professional-level expertise.
+    </p>
+
+    <div class="tag">Cybersecurity Fundamentals</div>
+    <div class="tag">Linux & Termux Environment</div>
+    <div class="tag">Networking Concepts</div>
+    <div class="tag">Web Technologies</div>
+    <div class="tag">Ethical & Responsible Practice</div>
+  </div>
+
+  <div class="card">
     <h2>Creative Work</h2>
     <p>
-      Along with technology, I enjoy creative expression. I manage a YouTube channel where
-      I upload music edits and creative content. This helps me improve my editing skills,
-      consistency, and online presence.
+      I also manage a YouTube channel where I upload music edits and creative content
+      as part of my digital growth.
     </p>
     <p>
-      The channel is part of my learning journey — starting small, improving gradually,
-      and growing with time.
+      <a href="https://www.youtube.com/@lybeast_edits" target="_blank">
+        Visit YouTube Channel →
+      </a>
     </p>
-    <p>
-      <a href="https://www.youtube.com/@lybeast_edits" target="_blank">Visit YouTube Channel →</a>
-    </p>
-  </div>  <div class="card">
+  </div>
+
+  <div class="card">
     <h2>My Roadmap</h2>
-    <p>
-      This roadmap outlines my learning direction and goals. It is flexible and will be updated
-      as I gain more experience and clarity.
-    </p>
     <ul>
-      <li><strong>2025 (Foundation Phase):</strong> Networking basics, Linux/Termux mastery, HTML, CSS, JavaScript, cybersecurity fundamentals.</li>
-      <li><strong>Early 2026:</strong> Ethical hacking labs, basic CTF challenges, understanding web vulnerabilities.</li>
-      <li><strong>Mid 2026:</strong> Small security projects, GitHub contributions, beginner bug bounty learning.</li>
-      <li><strong>Long-Term Goal:</strong> Become a skilled cybersecurity professional and ethical hacker.</li>
+      <li><strong>2025:</strong> Foundations (Networking, Linux, Web, Security)</li>
+      <li><strong>Early 2026:</strong> Ethical hacking labs & CTFs</li>
+      <li><strong>Mid 2026:</strong> Security projects & GitHub contributions</li>
+      <li><strong>Goal:</strong> Professional cybersecurity career</li>
     </ul>
-  </div>  <div class="card">
-    <h2>Projects</h2>
-    <p>
-      I am currently in the learning and experimentation phase. As I complete hands-on practice
-      and small tools, they will be published here with proper documentation.
-    </p>
-    <ul>
-      <li>🔒 Security Basics Labs — <em>Coming Soon</em></li>
-      <li>🌐 Simple Web Security Demos — <em>Coming Soon</em></li>
-      <li>🧪 Practice Tools (Educational) — <em>Coming Soon</em></li>
-    </ul>
-    <p>
-      <em>Note:</em> All projects will be created and shared responsibly for educational purposes only.
-    </p>
-  </div>  <div class="card">
-    <h2>Ethics & Disclaimer</h2>
-    <p>
-      I believe in learning cybersecurity responsibly. All skills and tools mentioned on this
-      website are practiced in legal environments such as labs, simulations, and personal testing setups.
-    </p>
-    <p>
-      I do not support or promote illegal hacking, misuse of data, or unauthorized access to systems.
-    </p>
-  </div>  <div class="card">
-    <h2>Contact Me</h2>
-    <p>If you want to contact me for learning, collaboration, or guidance, you can reach me here:</p>
+  </div>
+
+  <div class="card">
+    <h2>Contact</h2>
     <p>📞 WhatsApp: <strong>+92 346 3084191</strong></p>
     <p>📧 Email: <a href="mailto:mianabdullahsuleman16@gmail.com">mianabdullahsuleman16@gmail.com</a></p>
     <p>📷 Instagram: <a href="https://instagram.com/mas17264" target="_blank">@mas17264</a></p>
-  </div>  <footer style="position:relative; z-index:2; padding:20px 10px; margin-top:40px; border-top:1px solid rgba(0,255,153,0.3); text-align:center;">
-    <p>📞 <strong>WhatsApp:</strong> +92 346 3084191</p>
-    <p>📧 <strong>Email:</strong> <a href="mailto:mianabdullahsuleman16@gmail.com">mianabdullahsuleman16@gmail.com</a></p>
-    <p style="margin-top:10px; opacity:0.8;">Made by Abdullah Suleman © 2025</p>
+  </div>
+
+  <footer>
+    <p>Made by Abdullah Suleman © 2025</p>
   </footer>
-</div><script>
-// STARFIELD
+
+</div>
+
+<script>
+/* STARFIELD */
 const starCanvas = document.getElementById('starCanvas');
+const binaryCanvas = document.getElementById('binaryCanvas');
 const sctx = starCanvas.getContext('2d');
+const bctx = binaryCanvas.getContext('2d');
+
 let stars = [];
+const fontSize = 16;
+let drops = [];
 
 function resizeAll() {
   starCanvas.width = binaryCanvas.width = window.innerWidth;
@@ -204,6 +210,7 @@ function animateStars() {
   sctx.fillStyle = 'black';
   sctx.fillRect(0, 0, starCanvas.width, starCanvas.height);
   sctx.fillStyle = '#00ff99';
+
   stars.forEach(star => {
     sctx.beginPath();
     sctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
@@ -214,17 +221,13 @@ function animateStars() {
       star.x = Math.random() * starCanvas.width;
     }
   });
+
   requestAnimationFrame(animateStars);
 }
 
-// BINARY RAIN
-const binaryCanvas = document.getElementById('binaryCanvas');
-const bctx = binaryCanvas.getContext('2d');
-const fontSize = 16;
-let columns, drops;
-
+/* BINARY RAIN */
 function initBinary() {
-  columns = Math.floor(binaryCanvas.width / fontSize);
+  const columns = Math.floor(binaryCanvas.width / fontSize);
   drops = Array(columns).fill(1);
 }
 
@@ -253,5 +256,7 @@ window.addEventListener('resize', () => {
   initStars();
   initBinary();
 });
-</script></body>
+</script>
+
+</body>
 </html>
